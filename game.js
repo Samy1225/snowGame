@@ -105,6 +105,7 @@ class Game {
     this.sounds.play("main");
   }
   gameOver() {
+    this.sounds.play("gameover");
     this.stop();
     this.ctx.fillStyle = "rgba(69,0,154,0.7)";
     this.ctx.fillRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
@@ -114,7 +115,7 @@ class Game {
     this.ctx.fillText(
       "You are a loser Mister Pinguin, try again!",
       this.ctx.canvas.width / 2,
-      this.ctx.canvas.height / 2
+      this.ctx.canvas.height / 2,
     );
     this.ctx.restore();
   }
