@@ -1,29 +1,31 @@
 class Obstacles {
   constructor(ctx) {
     this.ctx = ctx;
-    this.pinguinWidth = 68;
-    this.pinguinHeight = 108;
-    this.pinguinImg = new Image();
-    this.pinguinImg.src = "images/pinguin.png";
+    this.bearWidth = 298;
+    this.bearHeight = 198;
+    this.bearImg = new Image();
+    this.bearImg.src = "images/osoBueno.png";
     this.enemyRate = 150;
-    this.enemyV = -50;
-    this.pinguins = [];
+    this.enemyV = -1;
+    this.bears = [];
   }
   init() {
-    this.pinguins = [];
+    this.bears = [];
     this.enemyRate = 150;
-    this.enemyV = -50;
-    this.pinguins.forEach(pinguin=> pinguin.x = 2000);
+    this.enemyV = -8;
+    this.bears.forEach(bear=> bear.x = 1500);
   }
 
   move(frameNumber) {
     if (frameNumber < 100) return;
 
     if (frameNumber % this.enemyRate === 0) {
-      const pinguinPosition = Math.floor((Math.random() * (this.ctx.canvas.width)) + 1000);
-      this.pinguins.push(this.getPinguin(pinguinPosition));
+      //const bearPosition = Math.floor((Math.random() * (this.ctx.canvas.width)) + this.ctx.canvas.width);
+      const bearPosition = this.ctx.canvas.width + this.ctx.canvas.width;
+      this.bears.push(this.getBear(bearPosition));
     }
-    this.pinguins.forEach((pinguin) => (pinguin.x += pinguin.vx));
+    this.bears.forEach((bear) => (bear.x += bear.vx));
+    
   }
 
   increaseDifficulty(frameNumber) {
@@ -33,50 +35,46 @@ class Obstacles {
     }
   }
 
-  setSpriteFrame(pinguin, frameNumber) {
-    if (frameNumber % 10 === 0) {
-      pinguin.spriteCol += 1;
+  setSpriteFrame(bear, frameNumber) {
+    if (frameNumber % 20 === 0) {
+      bear.spriteCol += 1;
 
-      if (pinguin.spriteCol >= pinguin.spriteColumns) {
-        pinguin.spriteCol = 0;
+      if (bear.spriteCol >= bear.spriteColumns) {
+        bear.spriteCol = 0;
       }
-      pinguin.spriteX = pinguin.width * pinguin.spriteCol;
-      pinguin.spriteY = pinguin.height * pinguin.spriteRow;
-    }
+      bear.spriteX = bear.width * bear.spriteCol;
+      bear.spriteY = bear.height * 0 
   }
-  getPinguin(position) {
-    const newPinguin = {
+}
+  getBear(position) {
+    const newBear = {
       x: position,
-      y: 320,
+      y: 600,
       vx: this.enemyV,
       vy: 0,
-      width: this.pinguinWidth,
-      height: this.pinguinHeight,
-
-      spriteColumns: 4,
-      spriteRows: 1,
-
+      width: this.bearWidth,
+      height: this.bearHeight,
+      spriteColumns: 3,
       spriteCol: 0,
-      spriteRow: 0,
       spriteX: 0,
       spriteY: 0,
     };
-    return newPinguin;
+    return newBear;
   }
 
   draw(frameNumber) {
-    this.pinguins.forEach((pinguin) => {
-      this.setSpriteFrame(pinguin, frameNumber);
+    this.bears.forEach((bear) => {
+      this.setSpriteFrame(bear, frameNumber);
       this.ctx.drawImage(
-        this.pinguinImg,
-        pinguin.spriteX,
-        pinguin.spriteY,
-        pinguin.width,
-        pinguin.height,
-        pinguin.x,
-        pinguin.y,
-        pinguin.width,
-        pinguin.height
+        this.bearImg,
+        bear.spriteX,
+        bear.spriteY,
+        bear.width,
+        bear.height,
+        bear.x,
+        bear.y,
+        bear.width,
+        bear.height
       );
     });
   }

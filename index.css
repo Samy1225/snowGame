@@ -21,9 +21,9 @@ body {
 
 #start-button {
   position: fixed;
-  top: 30vh;
+  top: 15vh;
   left: 43vw;
-    padding: 50px 40px;
+    padding: 50px 50px;
     color: rgb(255, 255, 255);
     background-color: #001999;
     border-radius: 20px;
@@ -32,6 +32,7 @@ body {
     font-size: 1.5rem;
 }
 
-.hidden{
+/* .hidden{
   display: none;
-}
+} */
+

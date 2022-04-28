@@ -1,15 +1,15 @@
 class Player {
   constructor(ctx) {
     this.ctx = ctx;
-    this.width = 230;
-    this.height = 150;
-    this.x = 500;
-    this.y = 650;
+    this.width = 150;
+    this.height = 110;
+    this.x = 100;
+    this.y = 400;
     this.vy = 0; // velocity
-    this.ay = 1; // gravity
+    this.ay = 0.6; // gravity
 
     this.img = new Image();
-    this.img.src = "images/oso.png";
+    this.img.src = "images/pinguin.png";
 
     this.spriteColumns = 3;
     this.spriteRows = 1;
@@ -29,17 +29,17 @@ class Player {
   }
   move(frameNumber) {
     let velocity = 2;
-    if (this.x < 100) {
+    if (this.x < 200) {
       this.x += velocity;
     }
     this.vy += this.ay;
     this.y += this.vy;
-    if (this.y > 650) this.y = 650;
+    if (this.y > 640) this.y = 640;
     if (this.y < 40) this.y = 40;
   }
 
   setSpriteFrame(frameNumber) {
-    if (frameNumber % 20 === 0) {
+    if (frameNumber % 15 === 0) {
       this.spriteCol += 1;
 
       if (this.spriteCol >= this.spriteColumns) {
@@ -50,7 +50,7 @@ class Player {
     }
   }
   jump(frameNumber) {
-    if (this.y === 650) this.vy = -30;
+    if (this.y === 640) this.vy = -30;
   }
   draw(frameNumber) {
     this.setSpriteFrame(frameNumber);
@@ -66,7 +66,7 @@ class Player {
       this.height
     );
   }
-  //// dudaaaaaaaaa
+  /// dudaa
   collidesWith(object) {
     return (
       this.x <= object.x + object.width &&
