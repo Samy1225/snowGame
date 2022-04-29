@@ -21,15 +21,15 @@ body {
 
 #start-button {
   position: fixed;
-  top: 15vh;
+  top: 13vh;
   left: 43vw;
-    padding: 50px 50px;
+    padding: 30px 30px;
     color: rgb(255, 255, 255);
     background-color: #001999;
     border-radius: 20px;
     border: 0px;
     font-family: 'Press Start 2P', cursive;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
 }
 
 /* .hidden{
@@ -38,5 +38,12 @@ body {
 
 .Instructions{
   font-size: 20px;
+  justify-content: center ;
 }
 
+.picture.game {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

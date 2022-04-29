@@ -95,7 +95,7 @@ class Game {
     this.ctx.save();
     this.ctx.fillStyle = "45009";
     this.ctx.font = "bold 24px 'Press Start 2P'";
-    this.ctx.fillText(`SCORE: ${this.score}`, 50, 70);
+    this.ctx.fillText(`SCORE: ${this.score}`, 90, 110);
     this.ctx.restore();
   }
 
@@ -107,7 +107,7 @@ class Game {
   gameOver() {
     this.sounds.play("gameover");
     this.stop();
-    this.ctx.fillStyle = "rgba(69,0,154,0.7)";
+    this.ctx.fillStyle = "rgba(255, 0, 0, 0.5)";
     this.ctx.fillRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
     this.ctx.fillStyle = "white";
     this.ctx.textAlign = "center";
