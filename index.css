@@ -1,7 +1,7 @@
 :root {
     font-size: 16px;
   }
-  
+
   * {
     margin: 0;
     padding: 0;
@@ -30,6 +30,7 @@ body {
     border: 0px;
     font-family: 'Press Start 2P', cursive;
     font-size: 1.3rem;
+    
 }
 
 /* .hidden{
@@ -39,11 +40,4 @@ body {
 .Instructions{
   font-size: 20px;
   justify-content: center ;
-}
-
-.picture.game {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }

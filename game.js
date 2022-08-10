@@ -4,9 +4,6 @@ class Game {
     this.player = player;
     this.obstacles = obstacles;
     this.background = background;
-    this.frameNumber = 0;
-    this.score = 0;
-    this.frames = 0;
     this.sounds = new Sounds();
 
     document.addEventListener("keydown", (event) => {
@@ -23,25 +20,22 @@ class Game {
   }
 
   init() {
-    if (this.frameNumber) this.stop();
-    this.sounds.play("main");
     this.ctx.canvas.height = window.innerHeight;
     this.ctx.canvas.width = window.innerWidth;
     this.frameNumber = 0;
     this.frames = 0;
-    this.obstacles.bears = [];
-    console.log(this.frameNumber);
     this.score = 0;
     this.background.init();
     this.player.init();
     this.obstacles.init();
+    this.sounds.play("main");
+    // this.obstacles.bears = [];
   }
 
   play() {
     this.move();
     this.draw();
     this.scoreUpdate();
-    this.increaseDifficulty();
     if (this.checkCollisions()) {
       console.log("ooppsssss");
       this.gameOver();
@@ -76,9 +70,9 @@ class Game {
     return collisions;
   }
 
-  increaseDifficulty() {
-    this.obstacles.increaseDifficulty(this.frameNumber);
-  }
+// increaseDifficulty() {
+//   this.obstacles.increaseDifficulty(this.frameNumber);
+//    }
 
   draw() {
     this.ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
@@ -92,18 +86,17 @@ class Game {
   }
 
   drawScore() {
-    this.ctx.save();
     this.ctx.fillStyle = "45009";
     this.ctx.font = "bold 24px 'Press Start 2P'";
     this.ctx.fillText(`SCORE: ${this.score}`, 90, 110);
-    this.ctx.restore();
   }
 
-  reset() {
-    this.background = new Background(this.ctx);
-    this.player = new Player(this.ctx);
-    this.sounds.play("main");
-  }
+  // reset() {
+  //  this.background = new Background(this.ctx);
+  //   this.player = new Player(this.ctx);
+  //   this.sounds.play("main");
+  // }
+
   gameOver() {
     this.sounds.play("gameover");
     this.stop();
@@ -115,8 +108,9 @@ class Game {
     this.ctx.fillText(
       "You are a loser Mister Pinguin, try again!",
       this.ctx.canvas.width / 2,
-      this.ctx.canvas.height / 2,
+      this.ctx.canvas.height / 2
     );
-    this.ctx.restore();
+    // this.ctx.save();
+    // this.ctx.restore();
   }
 }

@@ -12,11 +12,9 @@ const title = document.getElementById('title');
 startButton.addEventListener(
     'click', () => {
         startButton.textContent = 'RESTART';
-        startButton.classList.toggle("hidden");
-        title.classList.add('hidden');
+        // startButton.classList.toggle("hidden");
+        // title.classList.add('hidden');
         startButton.blur();
         game.start();
     }
 )
-
-//here is the link of the funcionalities with the button start .

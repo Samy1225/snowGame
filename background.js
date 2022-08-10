@@ -30,7 +30,7 @@ class Background {
 
   increaseVelocity(frameNumber) {
     if (frameNumber % 500 === 0 && frameNumber !== 0) {
-      this.backgroundFront.vx -= 0.5;
+      this.backgroundFront.vx -= 0.8;
     }
   }
 

@@ -13,27 +13,27 @@ class Obstacles {
     this.bears = [];
     this.enemyRate = 150;
     this.enemyV = -8;
-    this.bears.forEach(bear=> bear.x = 1500);
+    this.bears.forEach((bear) => (bear.x = 1500));
   }
 
   move(frameNumber) {
     if (frameNumber < 100) return;
 
     if (frameNumber % this.enemyRate === 0) {
-      //const bearPosition = Math.floor((Math.random() * (this.ctx.canvas.width)) + this.ctx.canvas.width);
-      const bearPosition = this.ctx.canvas.width + this.ctx.canvas.width;
+      const bearPosition = Math.floor((Math.random() * (this.ctx.canvas.width)) + this.ctx.canvas.width);
+     // const bearPosition = this.ctx.canvas.width + this.ctx.canvas.width;
       this.bears.push(this.getBear(bearPosition));
     }
     this.bears.forEach((bear) => (bear.x += bear.vx));
-    
   }
 
-  increaseDifficulty(frameNumber) {
-    if (frameNumber % 500 === 0 && frameNumber !== 0) {
-      this.enemyRate -= 6;
-      this.enemyV -= 0.5;
-    }
-  }
+  // increaseDifficulty(frameNumber) {
+
+ // (frameNumber % 500 === 0 && frameNumber !== 0) {
+  //this.enemyRate -= 6;
+  // this.enemyV -= 0.5;
+  //  }
+  // }
 
   setSpriteFrame(bear, frameNumber) {
     if (frameNumber % 20 === 0) {
@@ -43,9 +43,9 @@ class Obstacles {
         bear.spriteCol = 0;
       }
       bear.spriteX = bear.width * bear.spriteCol;
-      bear.spriteY = bear.height * 0 
+      bear.spriteY = bear.height * 0;
+    }
   }
-}
   getBear(position) {
     const newBear = {
       x: position,
